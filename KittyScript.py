@@ -42,11 +42,14 @@ def avg(l:list)->float:
 def _print(l:list)->str:
     print(*l)
 
+import sys
+
 if __name__=='__main__':
     i=c1=c2=0
     
-    file=open('hello.ks')
+    file=open(sys.argv[1])
     res=file.readlines()
+    file.close()
     rng=iter(range(len(res)))
     while i<len(res):
         if ';' in res[i]:
