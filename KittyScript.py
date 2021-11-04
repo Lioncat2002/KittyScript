@@ -7,53 +7,60 @@ def _print(l:list)->str:
     
 
 if __name__=='__main__':
-    i=c1=c2=0
-    
+    i=0
+    c=0
+    stack=[]
     file=open(sys.argv[1])
     res=file.readlines()
     file.close()
     rng=iter(range(len(res)))
     while i<len(res):
+
         if ';' in res[i]:
             res[i]=res[i][:res[i].index(';')]
-        wrd=res[i]
-        l=res[i].split()
+        if type(res[i])==str:
+            l=res[i].split()
+            res[i]=res[i].split()
+        else:
+            l=res[i]
+            
         if l !=[]:
             if l[0]=='REM':
-                i+=1
-            elif l[0]=='FD':
-                turtle.forward(float(l[1]))
-            
-            elif l[0]=='LT':
-                turtle.left(float(l[1]))
-        
-            elif l[0]=='RT':
-                turtle.right(float(l[1]))
-            
-            elif l[0]=='BK':
-                turtle.back(float(l[1]))
-            
-            elif l[0]=='PENDOWN':
-                turtle.pendown()
-
-            elif l[0]=='PENUP':
-                turtle.penup()
-
-            elif l[0]=='PRINT':
-                _print(l[1:])
+                pass
 
             elif l[0]=='JMP':
-                if c1<int(l[2]):
+                
+                if int(l[2]):
+                    c+=1
+                    
+                    res[i][2]=int(res[i][2])-1
                     i=int(l[1])-1
-                    c1+=1
-                    if c1==int(l[2]):
-                        i=res.index(wrd)  
-                        c1=0
-                  
+
+                elif int(l[2])==0:
+                        res[i][2]=c-1
+                        
+                        c=0
+                                        
             elif l[0]=='END':
                 break
-            
-            
+            else:
+                stack.append(l)     
         i+=1
-        
+
+for i in stack:
+    if i[0]=='FD':
+        turtle.forward(float(i[1]))
+    elif i[0]=='BK':
+        turtle.back(float(i[1]))
+    elif i[0]=='RT':
+        turtle.right(float(i[1]))
+    elif i[0]=='LT':
+        turtle.left(float(i[1]))
+    elif i[0]=='PENUP':
+        turtle.penup()
+    elif i[0]=='PENDOWN':
+        turtle.pendown()
+    elif i[0]=='PRINT':
+        print(*i[1:])
+    
 turtle.exitonclick()
