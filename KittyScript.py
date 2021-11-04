@@ -38,7 +38,7 @@ if __name__=='__main__':
 
                 elif int(l[2])==0:
                         res[i][2]=c-1
-                        
+                        print(res[i][2])
                         c=0
                                         
             elif l[0]=='END':
