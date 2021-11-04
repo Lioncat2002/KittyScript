@@ -4,8 +4,8 @@
  albeit a bit diffrent sytax.
  
 ## How to run?
-`python KittyScript.py <filename>.ks`
-Eg:
+`python KittyScript.py <filename>.ks`</br>
+Eg:</br>
 `python KittyScript.py hello.ks`
 
 Example video:
