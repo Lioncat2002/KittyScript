@@ -3,6 +3,9 @@
  It is based on the [LOGO programming language](https://en.wikipedia.org/wiki/Logo_(programming_language))</br>
  albeit a bit diffrent sytax.
  
+ ![image](https://user-images.githubusercontent.com/74904820/140265872-0ab38ede-422f-4cbe-b42e-506aa9f24dd3.png)
+
+ 
 ## How to run?
 `python KittyScript.py <filename>.ks`</br>
 Eg:</br>
