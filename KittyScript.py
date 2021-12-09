@@ -1,11 +1,6 @@
 
 import sys
 import turtle
-
-def _print(l:list)->str:
-    print(*l)
-    
-
 if __name__=='__main__':
     i=0
     c=0
@@ -32,13 +27,12 @@ if __name__=='__main__':
                 
                 if int(l[2]):
                     c+=1
-                    
                     res[i][2]=int(res[i][2])-1
                     i=int(l[1])-1
 
                 elif int(l[2])==0:
                         res[i][2]=c-1
-                        print(res[i][2])
+                   
                         c=0
                                         
             elif l[0]=='END':
